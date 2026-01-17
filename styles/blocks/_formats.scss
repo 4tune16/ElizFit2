@@ -1,0 +1,176 @@
+@use "../helpers" as *;
+
+.formats {
+  &-container {
+    @include container;
+    @include flex-center;
+    flex-direction: column;
+    padding-block: rem(96);
+
+    @include tablet {
+      padding-block: rem(32);
+    }
+
+    .formats-top-block {
+      text-align: center;
+
+      .formats-intro {
+        @include font-body;
+        color: var(--color-black-50);
+      }
+
+      .formats-title {
+        @include font-h2;
+        margin-bottom: rem(12);
+      }
+
+      .formats-description {
+        @include font-body;
+      }
+    }
+
+    .formats-bottom-block {
+      margin-top: rem(40);
+      display: flex;
+      gap: rem(24);
+
+      @include tablet {
+        flex-direction: column;
+        flex-grow: 1;
+        align-self: stretch;
+      }
+
+      .format {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(32);
+        padding: rem(20);
+        border-radius: rem(24);
+        background-color: var(--color-white-70);
+
+        transition-duration: var(--transition-duration);
+        &:hover {
+          scale: 1.02;
+        }
+
+        &.accent {
+          background-color: var(--color-primary-primary);
+        }
+
+        &-top {
+          display: flex;
+          flex-direction: column;
+          row-gap: rem(8);
+
+          &-accent {
+            display: flex;
+            justify-content: space-between;
+
+            .format-top-icon {
+              color: var(--color-black-100);
+            }
+
+            .format-top-tag {
+              @include font-body;
+              background-color: var(--color-black-80);
+              color: var(--color-white-100);
+              padding: rem(8) rem(12);
+              border-top-left-radius: rem(8);
+              border-bottom-left-radius: rem(8);
+            }
+          }
+
+          &-title {
+            @include font-body-title;
+          }
+
+          &-price {
+            @include font-numbers-semi;
+
+            .format-top-unit {
+              @include font-body;
+            }
+          }
+
+          .-description {
+            @include font-body;
+          }
+        }
+
+        &-center {
+          .list-intro {
+            @include font-body;
+          }
+
+          .format-info-list {
+            margin-top: rem(8);
+
+            .format-info-item {
+              padding-left: rem(30);
+              background-image: url(../icons/checkmark.svg);
+              background-repeat: no-repeat;
+              background-position: 0 -1px;
+
+              &:not(:last-child) {
+                margin-bottom: rem(8);
+              }
+            }
+          }
+        }
+
+        &-btn-wrapper {
+          display: flex;
+          align-items: end;
+          flex-grow: 1;
+        }
+
+        &-button {
+          display: inline-flex;
+          align-items: center;
+          row-gap: rem(10.5);
+          flex-grow: 1;
+
+          padding: rem(5) rem(5) rem(5) rem(24);
+          min-width: rem(317);
+          border-radius: rem(8);
+          border: rem(1) solid var(--color-black-100);
+          background-color: var(--color-white-100);
+          box-shadow: 0 10px 10px -4px rgba(0, 0, 0, 0.06), 0 2px 2px -3px rgba(0, 0, 0, 0.16),
+            0 1px 1px -1px rgba(0, 0, 0, 0.18);
+          scale: none;
+
+          @include tablet {
+            align-self: stretch;
+            padding: rem(5) rem(5) rem(5) rem(16);
+          }
+
+          .format-btn-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-self: stretch;
+            column-gap: rem(9.2);
+            flex-grow: 1;
+
+            .btn-text {
+              text-align: left;
+
+              &-small {
+                font-size: rem(10);
+                font-style: italic;
+              }
+            }
+
+            .format-arrow {
+              @include flex-center;
+              @include square(rem(40));
+              background-color: var(--color-black-60);
+              color: var(--color-white-100);
+              border-radius: rem(8);
+            }
+          }
+        }
+      }
+    }
+  }
+}

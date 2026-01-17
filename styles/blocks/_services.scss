@@ -1,0 +1,213 @@
+@use "../helpers" as *;
+
+.services {
+  color: var(--color-black-80);
+  background-color: var(--color-white-100);
+
+  &-container {
+    @include container;
+    @include flex-center;
+    padding-block: rem(124);
+    gap: rem(40);
+
+    @include tablet {
+      flex-direction: column;
+      padding-block: rem(32);
+    }
+
+    .services-info {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      .services-intro {
+        @include font-body;
+      }
+
+      .services-title {
+        @include font-h2;
+        color: inherit;
+        margin-bottom: rem(28);
+      }
+
+      .services-subtitle {
+        @include font-body-medium;
+        margin-bottom: rem(16);
+      }
+
+      .services-button {
+        display: inline-flex;
+        flex-direction: column;
+        row-gap: rem(10.5);
+        flex-grow: 0;
+
+        padding: rem(15) rem(15) rem(15) rem(24);
+        min-width: rem(248);
+        border-radius: rem(8);
+        background-color: var(--color-primary-primary);
+        box-shadow: 0 10px 10px -4px rgba(0, 0, 0, 0.06), 0 2px 2px -3px rgba(0, 0, 0, 0.16),
+          0 1px 1px -1px rgba(0, 0, 0, 0.18);
+
+        @include tablet {
+          align-self: stretch;
+          padding: rem(5) rem(5) rem(5) rem(16);
+        }
+
+        .services-btn-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          column-gap: rem(9.2);
+
+          .btn-text {
+            text-align: left;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--color-white-100);
+
+            .btn-small-text {
+              @include tablet-above {
+                display: none;
+              }
+            }
+
+            .btn-big-text {
+              @include tablet {
+                display: none;
+              }
+            }
+          }
+
+          .services-arrow {
+            @include flex-center;
+            @include square(rem(40));
+            background-color: var(--color-black-80);
+            color: var(--color-white-100);
+            border-radius: rem(8);
+          }
+        }
+      }
+    }
+
+    .services-grid {
+      width: 50%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "personal online-coaching"
+        "personal nutrition"
+        "group-training group-training";
+      gap: rem(13) rem(16);
+      color: var(--color-white-100);
+
+      & > div {
+        transition-duration: var(--transition-duration);
+        &:hover {
+          scale: 1.02;
+        }
+      }
+
+      @include tablet {
+        width: 100%;
+      }
+
+      @include mobile {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "personal"
+          "online-coaching"
+          "nutrition"
+          "group-training";
+      }
+
+      & > * {
+        padding: rem(24);
+        background-color: var(--color-black-60);
+        border-radius: rem(24);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: rem(41);
+      }
+
+      .personal {
+        grid-area: personal;
+        .service-location {
+          @include font-h3;
+        }
+      }
+
+      .online-coaching {
+        grid-area: online-coaching;
+      }
+
+      .nutrition {
+        grid-area: nutrition;
+      }
+
+      .group-training {
+        grid-area: group-training;
+        flex-direction: row;
+        gap: rem(24);
+
+        @include mobile {
+          flex-direction: column;
+          gap: rem(16);
+        }
+
+        .text-block {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 50%;
+
+          @include mobile {
+            width: 100%;
+            row-gap: rem(41);
+          }
+        }
+
+        .group-img {
+          width: 50%;
+          border-radius: rem(16);
+          object-fit: cover;
+
+          @include tablet {
+            width: 50%;
+            object-fit: cover;
+            height: rem(420);
+          }
+
+          @include mobile {
+            width: auto;
+            height: rem(320);
+          }
+        }
+      }
+
+      .service-bottom {
+        .service-title {
+          @include font-body-title;
+          margin-bottom: rem(4);
+        }
+
+        .service-description {
+          @include font-body;
+          opacity: 40%;
+          margin-bottom: rem(4);
+        }
+
+        .service-anchor {
+          color: var(--color-primary-primary);
+        }
+      }
+    }
+  }
+}

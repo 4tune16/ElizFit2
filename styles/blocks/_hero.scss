@@ -1,0 +1,157 @@
+@use "../helpers" as *;
+
+.hero {
+  // background: url(../images/bodylift2.jpg) 0 45% / cover no-repeat;
+  // background-position-y: 20%;
+  width: 100%;
+  height: 100vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  // @include tablet {
+  //   background-position-x: 20%;
+  // }
+
+  &-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    object-fit: cover;
+
+    // @include tablet {
+    //   width: 200%;
+    //   top: 50%;
+    //   left: 50%;
+    //   translate: -50% -50%;
+    // }
+  }
+
+  &-gradient {
+    width: 100%;
+    height: 51%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, #000 100%);
+    opacity: 0.75;
+  }
+
+  &-container {
+    @include container;
+    position: sticky;
+    top: 100%;
+    left: 100px;
+
+    height: fit-content;
+    z-index: 1;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    padding-bottom: rem(40);
+    color: var(--color-white-100);
+
+    @include tablet {
+      padding-bottom: rem(16);
+      flex-direction: column;
+      justify-content: end;
+      align-items: start;
+      row-gap: rem(24);
+    }
+
+    .hero-title {
+      @include font-h1;
+      max-width: 50%;
+      color: inherit;
+      opacity: 0.8;
+
+      @include tablet {
+        @include font-h1-small;
+        font-weight: 500;
+        font-size: 40px;
+        font-weight: 500;
+      }
+    }
+
+    .hero-action {
+      @include font-body;
+
+      @include tablet {
+        align-self: stretch;
+        align-items: start;
+      }
+
+      .hero-button {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: rem(10.5);
+        align-self: stretch;
+
+        padding: rem(12.7) rem(16) rem(14.8);
+        min-width: rem(278);
+        border-radius: rem(16);
+        background-color: rgba(114, 68, 150, 0.212);
+        box-shadow: 0 10px 10px -4px rgba(0, 0, 0, 0.06), 0 2px 2px -3px rgba(0, 0, 0, 0.16),
+          0 1px 1px -1px rgba(0, 0, 0, 0.18);
+
+        @include tablet {
+          align-self: stretch;
+          padding: rem(5) rem(5) rem(5) rem(16);
+        }
+        @include mobile {
+          background-color: rgba(114, 68, 150, 0.512);
+        }
+
+        .hero-telegram {
+          color: inherit;
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .hero-btn-bottom {
+          align-self: stretch;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          column-gap: rem(9.2);
+
+          .btn-text {
+            text-align: left;
+
+            .btn-small-text {
+              @include tablet-above {
+                display: none;
+              }
+            }
+
+            .btn-big-text {
+              @include tablet {
+                display: none;
+              }
+            }
+          }
+
+          .hero-arrow {
+            @include flex-center;
+            @include square(rem(40));
+            background-color: var(--color-white-100);
+            color: var(--color-black-80);
+            border-radius: rem(8);
+          }
+        }
+      }
+
+      .hero-info {
+        @include font-body;
+        color: var(--color-white-100);
+        opacity: 25%;
+        text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}

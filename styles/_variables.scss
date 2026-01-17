@@ -1,0 +1,36 @@
+@use "helpers" as *;
+
+:root {
+  --color-primary-primary: #734496;
+  --color-black-100: #000;
+  --color-black-90: #0d0d0d;
+  --color-black-80: #121212;
+  --color-black-70: #121212;
+  --color-black-60: #1c1c1c;
+  --color-black-50: #767676;
+  --color-white-100: #fff;
+  --color-white-90: #e5e5e5;
+  --color-white-80: #f8f8f8;
+  --color-white-70: #f2f2f2;
+  --color-other-yellow: #f5b614;
+
+  --scale-m: 1.05;
+  --scale-s: 1.02;
+
+  --font-family-base: "General Sans", sans-serif;
+  --font-family-accent: "Caveat", sans-serif;
+
+  --container-width: #{rem(1120)};
+  --container-padding-x: #{rem(40)};
+
+  --transition-duration: 0.2s;
+
+  @include tablet {
+    --container-width: 100%;
+    --container-padding-x: #{rem(16)};
+  }
+
+  @include mobile {
+    --container-padding-x: #{rem(16)};
+  }
+}

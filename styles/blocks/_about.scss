@@ -1,0 +1,220 @@
+@use "../helpers" as *;
+
+.about {
+  &-container {
+    @include container;
+    padding-block: rem(96);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(40);
+    position: relative;
+    flex-wrap: wrap;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      padding-block: rem(32);
+    }
+
+    .about-top-block {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      align-items: center;
+    }
+    .about-subtitle {
+      font-family: var(--font-family-accent);
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 110%;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }
+
+    .about-image {
+      border-radius: rem(40);
+      object-fit: calc(50%);
+      @include mobile {
+        height: auto;
+      }
+    }
+
+    .about-description {
+      display: flex;
+      flex-direction: column;
+      color: var(--color-black-100);
+
+      .about-intro {
+        // @include font-body;
+        // color: var(--color-black-50);
+        color: var(--color-black-100);
+
+        display: inline-block;
+        align-self: center;
+        position: relative;
+
+        font-family: var(--font-family-accent);
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 110%;
+        letter-spacing: -0.03em;
+        text-align: center;
+
+        > svg {
+          color: var(--color-primary-primary);
+          rotate: 355deg;
+        }
+
+        &-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -67%;
+        }
+      }
+
+      .about-title {
+        @include font-h2;
+
+        padding-bottom: rem(12);
+      }
+
+      .about-story {
+        @include font-body;
+      }
+
+      .about-specialization {
+        &-title {
+          margin-block: rem(12);
+        }
+
+        &-list {
+          > li {
+            padding-left: rem(24);
+            background-image: url(../icons/checkmark.svg);
+            background-repeat: no-repeat;
+            background-position: 0 1px;
+            background-size: 16px;
+
+            &:not(:last-child) {
+              margin-bottom: rem(8);
+            }
+          }
+        }
+      }
+
+      .about-sign {
+        @include font-sign;
+        padding-top: rem(68);
+        rotate: -3deg;
+        text-align: end;
+
+        @include tablet {
+          padding-top: rem(49);
+        }
+      }
+    }
+
+    .slider-block {
+      margin-top: rem(137.71);
+      margin-bottom: rem(32);
+      position: relative;
+      @include font-body-title;
+
+      .slider-title {
+        margin-bottom: rem(12);
+      }
+
+      .slider-wrapper {
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        border-radius: rem(24);
+
+        /* For Chrome, Safari, and Opera */
+        ::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* For IE, Edge, and Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        .slider-item {
+          flex-shrink: 0;
+          flex-grow: 0;
+          scroll-snap-align: start;
+          width: 100%;
+        }
+
+        .slider-dots {
+          position: absolute;
+          bottom: -3%;
+          left: 50%;
+          translate: -50% 100%;
+
+          display: flex;
+          column-gap: rem(15);
+
+          .slider-dot {
+            display: inline-block;
+            background-color: unset;
+            width: rem(10);
+            height: rem(10);
+            border-radius: 50%;
+            border: 1px solid var(--color-primary-primary);
+            transition-duration: var(--transition-duration);
+
+            &.active {
+              background-color: var(--color-primary-primary);
+            }
+            &:hover,
+            &:active,
+            &.active {
+              scale: 1.5;
+            }
+          }
+        }
+        .slider-button {
+          position: absolute;
+          bottom: 50%;
+          left: 3%;
+          &:hover,
+          &:active {
+            scale: var(--scale-m);
+          }
+
+          &::before {
+            content: "";
+            width: rem(8);
+            height: rem(8);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            translate: -25% -50%;
+            rotate: 225deg;
+            border-top: rem(2) solid;
+            border-right: rem(2) solid;
+            border-color: var(--color-primary-primary);
+          }
+
+          &.right {
+            left: unset;
+            right: 3%;
+            &::before {
+              rotate: 45deg;
+              translate: -75% -50%;
+            }
+          }
+
+          width: rem(24);
+          height: rem(24);
+          border-radius: 50%;
+          background-color: #ffffff66;
+          border: rem(1) solid #ffffff3d;
+        }
+      }
+    }
+  }
+}
