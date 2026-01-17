@@ -41,11 +41,8 @@
 
   &-container {
     @include container;
-    position: sticky;
-    top: 100%;
-    left: 100px;
-
-    height: fit-content;
+    position: sticky; // чтобы просто не static (чтобы был спереди других абсолют детей родителя)
+    height: 100dvh;
     z-index: 1;
     display: flex;
     align-items: end;
@@ -94,7 +91,9 @@
         min-width: rem(278);
         border-radius: rem(16);
         background-color: rgba(114, 68, 150, 0.212);
-        box-shadow: 0 10px 10px -4px rgba(0, 0, 0, 0.06), 0 2px 2px -3px rgba(0, 0, 0, 0.16),
+        box-shadow:
+          0 10px 10px -4px rgba(0, 0, 0, 0.06),
+          0 2px 2px -3px rgba(0, 0, 0, 0.16),
           0 1px 1px -1px rgba(0, 0, 0, 0.18);
 
         @include tablet {

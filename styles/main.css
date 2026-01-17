@@ -300,9 +300,7 @@ li:has(> a):active {
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
   position: sticky;
-  top: 100%;
-  left: 100px;
-  height: fit-content;
+  height: 100dvh;
   z-index: 1;
   display: flex;
   align-items: end;
