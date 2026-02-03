@@ -1,0 +1,125 @@
+@use "../helpers" as *;
+
+.questions {
+  &-container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: rem(32);
+    padding-block: rem(96);
+
+    .questions-info {
+      width: 50%;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      .questions-intro,
+      .questions-subtitle {
+        @include font-body;
+      }
+
+      .questions-title {
+        @include font-h2;
+        color: inherit;
+      }
+
+      .questions-subtitle {
+        margin-block: rem(12);
+      }
+    }
+
+    .questions-section {
+      width: 50%;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      .questions-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(12);
+
+        counter-reset: custom-counter;
+        list-style: none;
+
+        @include mobile {
+          row-gap: rem(8);
+        }
+
+        .questions-item {
+          --counterContent: counter(custom-counter);
+          counter-increment: custom-counter;
+
+          .questions-accordion {
+            &[open] {
+              --indicatorVerticalRotate: -90deg;
+            }
+
+            &-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: start;
+              column-gap: 50px;
+              cursor: pointer;
+              user-select: none;
+              padding-block: rem(24);
+
+              .questions-accordion-indicator {
+                flex-shrink: 0;
+                position: relative;
+                width: rem(10);
+                height: rem(11);
+
+                &::after,
+                &::before {
+                  rotate: 90deg;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  translate: -100% 50%;
+
+                  content: "";
+                  width: rem(2);
+                  height: rem(11);
+                  border-radius: rem(1);
+                  background-color: var(--color-black-100);
+                }
+
+                &::before {
+                  rotate: var(--indicatorVerticalRotate);
+                  transition-duration: var(--transition-duration);
+                }
+              }
+            }
+
+            &-title {
+              @include font-body;
+            }
+          }
+
+          .questions-accordion-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition-duration: var(--transition-duration);
+
+            &-content {
+              overflow: hidden;
+
+              > p {
+                margin-block: rem(12);
+              }
+            }
+          }
+
+          .questions-accordion[open] + .questions-accordion-body {
+            grid-template-rows: 1fr;
+          }
+        }
+      }
+    }
+  }
+}

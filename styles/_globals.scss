@@ -57,3 +57,122 @@ li:has(> a):active {
   scale: 1.05;
   transition-duration: var(--transition-duration);
 }
+
+.top-block {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(12);
+
+  .slider-title {
+    @include font-body-title;
+  }
+
+  .slider-info,
+  .slider-info-bottom {
+    @include font-body;
+  }
+}
+
+.slider-block {
+  position: relative;
+  margin-bottom: rem(16);
+
+  .slider-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border-radius: rem(24);
+    background-color: var(--color-black-60);
+
+    /* For Chrome, Safari, and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* For IE, Edge, and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    .slider-item {
+      flex-shrink: 0;
+      flex-grow: 0;
+      scroll-snap-align: start;
+      width: 100%;
+
+      padding: 1.5rem;
+
+      .transformation-img {
+        object-fit: contain;
+      }
+    }
+
+    .slider-dots {
+      position: absolute;
+      bottom: -3%;
+      left: 50%;
+      translate: -50% 100%;
+
+      display: flex;
+      column-gap: rem(15);
+
+      .slider-dot {
+        display: inline-block;
+        background-color: unset;
+        width: rem(10);
+        height: rem(10);
+        border-radius: 50%;
+        border: 1px solid var(--color-primary-primary);
+        transition-duration: var(--transition-duration);
+
+        &.active {
+          background-color: var(--color-primary-primary);
+        }
+        &:hover,
+        &:active,
+        &.active {
+          scale: 1.5;
+        }
+      }
+    }
+    .slider-button {
+      width: rem(32);
+      height: rem(32);
+      position: absolute;
+      bottom: 50%;
+      left: 3%;
+      border-radius: 50%;
+      background-color: #ffffff66;
+      border: rem(1) solid #ffffff3d;
+
+      &:hover,
+      &:active {
+        scale: var(--scale-m);
+      }
+
+      &::before {
+        content: "";
+        width: rem(8);
+        height: rem(8);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -25% -50%;
+        rotate: 225deg;
+        border-top: rem(2) solid;
+        border-right: rem(2) solid;
+        border-color: var(--color-primary-primary);
+      }
+
+      &.right {
+        left: unset;
+        right: 3%;
+        &::before {
+          rotate: 45deg;
+          translate: -75% -50%;
+        }
+      }
+    }
+  }
+}

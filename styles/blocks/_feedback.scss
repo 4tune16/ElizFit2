@@ -1,0 +1,58 @@
+@use "../helpers" as *;
+
+.feedback {
+  &-container {
+    @include container;
+    padding-block: rem(96);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr auto;
+
+    gap: rem(32);
+
+    @include tablet {
+      padding-block: rem(32);
+    }
+
+    @include mobile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .feedback-top-block {
+      grid-column: 1 / -1;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      .feedback-intro {
+        @include font-body;
+        color: var(--color-black-80);
+      }
+
+      .feedback-title {
+        @include font-h2;
+        margin-bottom: rem(12);
+      }
+    }
+
+    .feedback-motivation,
+    .feedback-results {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: rem(12);
+
+      .feedback.slider-block {
+        flex-grow: 0;
+        flex-shrink: 1;
+      }
+
+      .feedback-img {
+        object-fit: contain;
+        border-radius: rem(24);
+      }
+    }
+  }
+}

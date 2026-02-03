@@ -1,82 +1,88 @@
-const sliderTransformationWrapper = document.querySelector(".about-transformation-wrapper");
-const sliderTransformationDots = document.querySelector(".about-transformation-dots");
-const leftTransformButton = document.querySelector(".slider-button.left");
-const rightTransformButton = document.querySelector(".slider-button.right");
+import { createSlider } from "./slider.js";
 
-// -------------- width variables -----------------
-let fullWidth = sliderTransformationWrapper.scrollWidth;
-let visibleWidth = sliderTransformationWrapper.clientWidth;
-let countOfDots = Math.round(fullWidth / visibleWidth);
+const slider1 = createSlider("about-transformation-wrapper");
+const slider2 = createSlider("feedback-motivation-wrapper");
+const slider3 = createSlider("feedback-results-wrapper");
+const slider4 = createSlider("about-education-wrapper");
 
-/** under: updating variables on resizing */
-const resizeObserver = new ResizeObserver((entries) => {
-  for (const entry of entries) {
-    if (entry.contentBoxSize) {
-      fullWidth = sliderTransformationWrapper.scrollWidth;
-      visibleWidth = sliderTransformationWrapper.clientWidth;
-      countOfDots = Math.round(fullWidth / visibleWidth);
-    }
-  }
-});
+// const sliderTransformationWrapper = document.querySelector(".about-transformation-wrapper");
+// const sliderTransformationDots = document.querySelector(".about-transformation-dots");
+// const leftTransformButton = document.querySelector(".slider-button.left");
+// const rightTransformButton = document.querySelector(".slider-button.right");
 
-resizeObserver.observe(sliderTransformationWrapper);
-// ---------------------------------------------------
+// // -------------- width variables -----------------
+// let fullWidth = sliderTransformationWrapper.scrollWidth;
+// let visibleWidth = sliderTransformationWrapper.clientWidth;
+// let countOfDots = Math.round(fullWidth / visibleWidth);
 
-const arrOfDots = Array.from({ length: countOfDots }, (_, i) => i);
+// /** under: updating variables on resizing */
+// const resizeObserver = new ResizeObserver((entries) => {
+//   for (const entry of entries) {
+//     if (entry.contentBoxSize) {
+//       fullWidth = sliderTransformationWrapper.scrollWidth;
+//       visibleWidth = sliderTransformationWrapper.clientWidth;
+//       countOfDots = Math.round(fullWidth / visibleWidth);
+//     }
+//   }
+// });
 
-const ACTIVE_DOT_CLASS = "active";
+// resizeObserver.observe(sliderTransformationWrapper);
 
-arrOfDots.forEach((i) => {
-  const dot = document.createElement("button");
-  dot.id = "transformation-id:" + i;
-  dot.classList.add("slider-dot");
-  if (i === 0) {
-    dot.classList.add(ACTIVE_DOT_CLASS);
-  }
+// const arrOfDots = Array.from({ length: countOfDots }, (_, i) => i);
 
-  sliderTransformationDots.appendChild(dot);
-});
+// const ACTIVE_DOT_CLASS = "active";
 
-sliderTransformationDots.addEventListener("click", (e) => {
-  const clickedDotInd = Number(e.target.id.split(":")[1]);
-  sliderTransformationWrapper.scrollTo({ left: clickedDotInd * visibleWidth });
-});
-const sliderTransformationWrapperScrollHandler = (e) => {
-  const currentDotInd = Math.round(e.target.scrollLeft / visibleWidth);
+// arrOfDots.forEach((i) => {
+//   const dot = document.createElement("button");
+//   dot.id = "transformation-id:" + i;
+//   dot.classList.add("slider-dot");
+//   if (i === 0) {
+//     dot.classList.add(ACTIVE_DOT_CLASS);
+//   }
 
-  arrOfDots.forEach((_, i) => {
-    if (i === currentDotInd) {
-      sliderTransformationDots.children[i].classList.add(ACTIVE_DOT_CLASS);
-    } else {
-      sliderTransformationDots.children[i].classList.remove(ACTIVE_DOT_CLASS);
-    }
-  });
-};
-sliderTransformationWrapper.addEventListener("scroll", sliderTransformationWrapperScrollHandler);
+//   sliderTransformationDots.appendChild(dot);
+// });
 
-const leftTransformButtonClickHandler = (e) => {
-  const currentActiveDotIndex = [...sliderTransformationDots.children].findIndex((dot) => {
-    return dot.classList.contains(ACTIVE_DOT_CLASS);
-  });
+// sliderTransformationDots.addEventListener("click", (e) => {
+//   const clickedDotInd = Number(e.target.id.split(":")[1]);
+//   sliderTransformationWrapper.scrollTo({ left: clickedDotInd * visibleWidth });
+// });
+// const sliderTransformationWrapperScrollHandler = (e) => {
+//   const currentDotInd = Math.round(e.target.scrollLeft / visibleWidth);
 
-  if (currentActiveDotIndex === -1) {
-    return;
-  }
+//   arrOfDots.forEach((_, i) => {
+//     if (i === currentDotInd) {
+//       sliderTransformationDots.children[i].classList.add(ACTIVE_DOT_CLASS);
+//     } else {
+//       sliderTransformationDots.children[i].classList.remove(ACTIVE_DOT_CLASS);
+//     }
+//   });
+// };
+// sliderTransformationWrapper.addEventListener("scroll", sliderTransformationWrapperScrollHandler);
 
-  sliderTransformationWrapper.scrollTo({ left: (currentActiveDotIndex - 1) * visibleWidth });
-};
+// const leftTransformButtonClickHandler = (e) => {
+//   const currentActiveDotIndex = [...sliderTransformationDots.children].findIndex((dot) => {
+//     return dot.classList.contains(ACTIVE_DOT_CLASS);
+//   });
 
-leftTransformButton.addEventListener("click", leftTransformButtonClickHandler);
+//   if (currentActiveDotIndex === -1) {
+//     return;
+//   }
 
-const rightTransformButtonClickHander = (e) => {
-  const currentActiveDotIndex = [...sliderTransformationDots.children].findIndex((dot) => {
-    return dot.classList.contains(ACTIVE_DOT_CLASS);
-  });
+//   sliderTransformationWrapper.scrollTo({ left: (currentActiveDotIndex - 1) * visibleWidth });
+// };
 
-  if (currentActiveDotIndex === -1) {
-    return;
-  }
+// leftTransformButton.addEventListener("click", leftTransformButtonClickHandler);
 
-  sliderTransformationWrapper.scrollTo({ left: (currentActiveDotIndex + 1) * visibleWidth });
-};
-rightTransformButton.addEventListener("click", rightTransformButtonClickHander);
+// const rightTransformButtonClickHander = (e) => {
+//   const currentActiveDotIndex = [...sliderTransformationDots.children].findIndex((dot) => {
+//     return dot.classList.contains(ACTIVE_DOT_CLASS);
+//   });
+
+//   if (currentActiveDotIndex === -1) {
+//     return;
+//   }
+
+//   sliderTransformationWrapper.scrollTo({ left: (currentActiveDotIndex + 1) * visibleWidth });
+// };
+// rightTransformButton.addEventListener("click", rightTransformButtonClickHander);
