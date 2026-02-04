@@ -75,6 +75,7 @@
           font-family: var(--font-family-base);
           @include font-body;
           text-align: left;
+          letter-spacing: normal;
 
           margin-bottom: rem(12);
         }

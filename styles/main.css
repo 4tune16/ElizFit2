@@ -620,6 +620,7 @@ li:has(> a):active {
   font-size: 0.875rem;
   line-height: 150%;
   text-align: left;
+  letter-spacing: normal;
   margin-bottom: 0.75rem;
 }
 .about-container .about-description .about-story {
