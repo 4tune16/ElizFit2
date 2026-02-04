@@ -9,6 +9,11 @@
     column-gap: rem(32);
     padding-block: rem(96);
 
+    @include tablet {
+      flex-direction: column;
+      padding-block: rem(32);
+    }
+
     .questions-info {
       width: 50%;
 

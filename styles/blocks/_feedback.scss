@@ -7,11 +7,11 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: 1fr auto;
-
     gap: rem(32);
 
     @include tablet {
       padding-block: rem(32);
+      gap: rem(48);
     }
 
     @include mobile {

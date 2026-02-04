@@ -114,6 +114,12 @@ svg * {
   transition-property: fill, stroke;
 }
 
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 /**
   Удаляем все анимации и переходы для людей,
   которые предпочитают их не использовать
@@ -383,6 +389,7 @@ li:has(> a):active {
 }
 
 .hero {
+  background: url(../images/bodylift2.jpg) 0 100%/cover no-repeat;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -391,9 +398,14 @@ li:has(> a):active {
 .hero-video {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 56%;
   translate: -50% -50%;
-  object-fit: cover;
+  object-fit: contain;
+}
+@media (width <= 69.99875rem) {
+  .hero-video {
+    object-fit: cover;
+  }
 }
 .hero-gradient {
   width: 100%;
@@ -583,6 +595,7 @@ li:has(> a):active {
   display: inline-block;
   align-self: center;
   position: relative;
+  margin-top: 1.25rem;
   font-family: var(--font-family-accent);
   font-weight: 400;
   font-size: 2rem;
@@ -596,35 +609,39 @@ li:has(> a):active {
 }
 .about-container .about-description .about-intro-text {
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
   translate: -50% -67%;
 }
-.about-container .about-description .about-title {
+.about-container .about-description .about-intro-info {
   font-family: var(--font-family-base);
-  font-weight: 500;
-  font-size: clamp(1.9375rem, 1.5950413223rem + 1.4049586777vw, 3rem);
-  line-height: 110%;
-  letter-spacing: -0.03em;
-}
-.about-container .about-description .about-story {
   font-family: var(--font-family-base);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 150%;
+  text-align: left;
+  margin-bottom: 0.75rem;
 }
-.about-container .about-description .about-specialization-title {
-  margin-block: 0.75rem;
+.about-container .about-description .about-story {
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.about-container .about-description .about-specialization-list {
+  margin-top: 0.75rem;
 }
 .about-container .about-description .about-specialization-list > li {
-  padding-left: 1.5rem;
-  background-image: url(../icons/checkmark.svg);
-  background-repeat: no-repeat;
-  background-position: 0 1px;
-  background-size: 16px;
+  padding-left: 0.5rem;
 }
 .about-container .about-description .about-specialization-list > li:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+.about-container .about-description .about-specialization-list > li::before {
+  content: "⚡️";
+  padding-right: 0.3125rem;
 }
 .about-container .about-description .about-sign {
   font-family: var(--font-family-accent);
@@ -1164,6 +1181,7 @@ li:has(> a):active {
 @media (width <= 69.99875rem) {
   .feedback-container {
     padding-block: 2rem;
+    gap: 3rem;
   }
 }
 @media (width <= 31.24875rem) {
@@ -1221,6 +1239,12 @@ li:has(> a):active {
   align-items: start;
   column-gap: 2rem;
   padding-block: 6rem;
+}
+@media (width <= 69.99875rem) {
+  .questions-container {
+    flex-direction: column;
+    padding-block: 2rem;
+  }
 }
 .questions-container .questions-info {
   width: 50%;

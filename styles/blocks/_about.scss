@@ -50,6 +50,7 @@
         display: inline-block;
         align-self: center;
         position: relative;
+        margin-top: rem(20);
 
         font-family: var(--font-family-accent);
         font-weight: 400;
@@ -65,37 +66,39 @@
 
         &-text {
           position: absolute;
-          top: 50%;
+          top: 15%;
           left: 50%;
           translate: -50% -67%;
         }
-      }
 
-      .about-title {
-        @include font-h2;
+        &-info {
+          font-family: var(--font-family-base);
+          @include font-body;
+          text-align: left;
 
-        // padding-bottom: rem(12);
+          margin-bottom: rem(12);
+        }
       }
 
       .about-story {
-        @include font-body;
+        @include font-body-title;
+        text-align: center;
       }
 
       .about-specialization {
-        &-title {
-          margin-block: rem(12);
-        }
-
         &-list {
+          margin-top: rem(12);
+
           > li {
-            padding-left: rem(24);
-            background-image: url(../icons/checkmark.svg);
-            background-repeat: no-repeat;
-            background-position: 0 1px;
-            background-size: 16px;
+            padding-left: rem(8);
 
             &:not(:last-child) {
               margin-bottom: rem(8);
+            }
+
+            &::before {
+              content: "⚡️";
+              padding-right: rem(5);
             }
           }
         }
