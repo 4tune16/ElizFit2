@@ -20,6 +20,7 @@ export function addFluidVhListenner() {
       // Используем шаблонную строку эффективнее
       value = `calc(100vh - ${diff - scrollY}px)`;
     }
+    console.log(`vh: ${vh}, dvh: ${dvh}, diff: ${vh - dvh}, scroll: ${window.scrollY}`);
 
     // setProperty не затирает остальные стили body
     bodyStyle.setProperty(CSS_FLUID_VH, value);
@@ -40,10 +41,16 @@ export function addFluidVhListenner() {
   // Слушатели
   if (window.visualViewport) {
     window.visualViewport.addEventListener("resize", () => {
-      dvh = window.innerHeight; // Обновляем dvh при ресайзе
+      vh = window.innerHeight;
       requestUpdate();
     });
   }
+
+  // Также стоит слушать обычный resize для десктопов и подстраховки
+  window.addEventListener("resize", () => {
+    vh = window.innerHeight;
+    requestUpdate();
+  });
 
   window.addEventListener("scroll", requestUpdate, { passive: true });
 
