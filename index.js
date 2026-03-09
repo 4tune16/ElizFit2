@@ -1,7 +1,4 @@
-import { fluidVhSet } from "./fluidVh.js";
 import { createSlider } from "./slider.js";
-
-fluidVhSet();
 
 const slider1 = createSlider("about-transformation-wrapper");
 const slider2 = createSlider("feedback-motivation-wrapper");
