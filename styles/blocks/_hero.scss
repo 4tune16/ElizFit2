@@ -1,7 +1,7 @@
 @use "../helpers" as *;
 
 .hero {
-  background: url(../images/bodylift2.jpg) 0 100% / cover no-repeat;
+  background: url(../images/bodylift2.webp) 0 100% / cover no-repeat;
 
   width: 100%;
   height: 100vh;
@@ -19,6 +19,7 @@
 
     @include tablet {
       object-fit: cover;
+      left: 50%;
     }
 
     // @include tablet {
