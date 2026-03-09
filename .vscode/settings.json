@@ -2,9 +2,12 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.requireConfig": false
+  "prettier.requireConfig": false,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 16
 }
