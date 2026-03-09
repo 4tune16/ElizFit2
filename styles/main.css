@@ -278,6 +278,20 @@ li:has(> a):active {
   transition-duration: var(--transition-duration);
 }
 
+.circle-container {
+  position: relative;
+}
+.circle-container > svg {
+  color: var(--color-primary-primary);
+  rotate: 355deg;
+}
+.circle-container .cirlce-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -60%;
+}
+
 .top-block {
   display: flex;
   flex-direction: column;
@@ -487,6 +501,7 @@ li:has(> a):active {
     letter-spacing: -0.04em;
     font-size: 40px;
     font-weight: 700;
+    opacity: 0.9;
   }
 }
 .hero-container .hero-action {
@@ -631,15 +646,9 @@ li:has(> a):active {
   letter-spacing: -0.03em;
   text-align: center;
 }
-.about-container .about-description .about-intro > svg {
+.about-container .about-description .about-intro svg {
   color: var(--color-primary-primary);
   rotate: 355deg;
-}
-.about-container .about-description .about-intro-text {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  translate: -50% -67%;
 }
 .about-container .about-description .about-intro-info {
   font-family: var(--font-family-base);
@@ -715,10 +724,6 @@ li:has(> a):active {
   rotate: 355deg;
 }
 .about-container .about-education-title {
-  position: absolute;
-  top: 21%;
-  left: 50%;
-  translate: -50% -67%;
   font-family: var(--font-family-accent);
   font-weight: 400;
   font-size: 2rem;
@@ -748,16 +753,10 @@ li:has(> a):active {
   position: relative;
   row-gap: 0.75rem;
 }
-.about-container .about-transformation > svg {
-  color: var(--color-primary-primary);
-  rotate: 355deg;
-  transform: scaleX(1.2);
+.about-container .about-transformation svg {
+  transform: scaleX(1.25);
 }
 .about-container .about-transformation-title {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  translate: -50% -67%;
   font-family: var(--font-family-accent);
   font-weight: 400;
   font-size: 2rem;

@@ -58,6 +58,20 @@ li:has(> a):active {
   transition-duration: var(--transition-duration);
 }
 
+.circle-container {
+  position: relative;
+  > svg {
+    color: var(--color-primary-primary);
+    rotate: 355deg;
+  }
+  & .cirlce-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -60%;
+  }
+}
+
 .top-block {
   display: flex;
   flex-direction: column;

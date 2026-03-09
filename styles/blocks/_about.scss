@@ -59,16 +59,9 @@
         letter-spacing: -0.03em;
         text-align: center;
 
-        > svg {
+        svg {
           color: var(--color-primary-primary);
           rotate: 355deg;
-        }
-
-        &-text {
-          position: absolute;
-          top: 12%;
-          left: 50%;
-          translate: -50% -67%;
         }
 
         &-info {
@@ -137,11 +130,6 @@
       }
 
       &-title {
-        position: absolute;
-        top: 21%;
-        left: 50%;
-        translate: -50% -67%;
-
         font-family: var(--font-family-accent);
         font-weight: 400;
         font-size: 2rem;
@@ -173,18 +161,11 @@
 
       row-gap: rem(12);
 
-      > svg {
-        color: var(--color-primary-primary);
-        rotate: 355deg;
-        transform: scaleX(1.2);
+      svg {
+        transform: scaleX(1.25);
       }
 
       &-title {
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        translate: -50% -67%;
-
         font-family: var(--font-family-accent);
         font-weight: 400;
         font-size: 2rem;
