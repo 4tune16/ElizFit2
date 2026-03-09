@@ -48,7 +48,7 @@
   &-container {
     @include container;
     position: sticky; // чтобы просто не static (чтобы был спереди других абсолют детей родителя)
-    height: 100dvh;
+    height: 100vh;
     z-index: 1;
     display: flex;
     align-items: end;
@@ -91,6 +91,9 @@
       max-width: 50%;
       color: inherit;
       opacity: 0.8;
+
+      hyphens: none;
+      word-break: unset;
       // transform: translateY(-50%);
 
       @include tablet {
