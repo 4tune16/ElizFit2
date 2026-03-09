@@ -43,13 +43,14 @@
   &-container {
     @include container;
     position: sticky; // чтобы просто не static (чтобы был спереди других абсолют детей родителя)
-    height: 100dvh; //  --fluid-vh создается в js и передается body.style
+    height: 100vh;
     z-index: 1;
     display: flex;
     align-items: end;
     justify-content: space-between;
     padding-bottom: rem(40);
     color: var(--color-white-100);
+    transition: max-height 0.3s;
 
     /* Привязываем анимацию */
     animation: adjust-height linear both;
@@ -58,7 +59,7 @@
     animation-timeline: scroll(root);
 
     /* Ограничиваем диапазон: анимация закончится через 100px скролла */
-    animation-range: 0px 100px;
+    animation-range: 0px 150px;
 
     @keyframes adjust-height {
       from {
@@ -66,7 +67,7 @@
         max-height: 100dvh;
       }
 
-      to {
+      100% {
         /* Аналог вашего финального состояния (100vh) */
         max-height: 100vh;
       }
