@@ -14,6 +14,10 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none;
+
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 main {
@@ -69,7 +73,7 @@ li:has(> a):active {
 
   .slider-info,
   .slider-info-bottom {
-    @include font-body;
+    @include font-body-medium;
   }
 }
 

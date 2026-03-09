@@ -25,7 +25,7 @@
       }
 
       .formats-description {
-        @include font-body;
+        @include font-body-medium;
       }
     }
 
@@ -135,7 +135,9 @@
           border-radius: rem(8);
           border: rem(1) solid var(--color-black-100);
           background-color: var(--color-white-100);
-          box-shadow: 0 10px 10px -4px rgba(0, 0, 0, 0.06), 0 2px 2px -3px rgba(0, 0, 0, 0.16),
+          box-shadow:
+            0 10px 10px -4px rgba(0, 0, 0, 0.06),
+            0 2px 2px -3px rgba(0, 0, 0, 0.16),
             0 1px 1px -1px rgba(0, 0, 0, 0.18);
           scale: none;
 

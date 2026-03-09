@@ -66,14 +66,14 @@
 
         &-text {
           position: absolute;
-          top: 15%;
+          top: 12%;
           left: 50%;
           translate: -50% -67%;
         }
 
         &-info {
           font-family: var(--font-family-base);
-          @include font-body;
+          @include font-body-medium;
           text-align: left;
           letter-spacing: normal;
 
@@ -89,6 +89,7 @@
       .about-specialization {
         &-list {
           margin-top: rem(12);
+          @include font-body-medium;
 
           > li {
             padding-left: rem(8);
@@ -118,20 +119,42 @@
     }
 
     .about-story {
-      @include font-body;
+      @include font-body-medium;
     }
 
     .about-education {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      position: relative;
 
       row-gap: rem(12);
+
+      > svg {
+        color: var(--color-primary-primary);
+        rotate: 355deg;
+      }
+
+      &-title {
+        position: absolute;
+        top: 21%;
+        left: 50%;
+        translate: -50% -67%;
+
+        font-family: var(--font-family-accent);
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 110%;
+        letter-spacing: -0.03em;
+        text-align: center;
+      }
 
       &-info {
         // height: rem(117);
 
         @include tablet {
+          @include font-body-medium;
           height: fit-content;
           margin-top: 0;
         }
@@ -145,8 +168,36 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      position: relative;
 
       row-gap: rem(12);
+
+      > svg {
+        color: var(--color-primary-primary);
+        rotate: 355deg;
+        transform: scaleX(1.2);
+      }
+
+      &-title {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        translate: -50% -67%;
+
+        font-family: var(--font-family-accent);
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 110%;
+        letter-spacing: -0.03em;
+        text-align: center;
+        text-wrap: nowrap;
+      }
+
+      &-info {
+        @include font-body-medium;
+        text-align: center;
+      }
     }
   }
 }
