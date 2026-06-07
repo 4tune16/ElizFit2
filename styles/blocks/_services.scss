@@ -16,7 +16,7 @@
     }
 
     .services-info {
-      width: 50%;
+      width: 40%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -94,13 +94,12 @@
     }
 
     .services-grid {
-      width: 50%;
+      width: 60%;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
         "personal online-coaching"
-        "personal nutrition"
-        "group-training group-training";
+        "personal technique";
       gap: rem(13) rem(16);
       color: var(--color-white-100);
 
@@ -120,8 +119,7 @@
         grid-template-areas:
           "personal"
           "online-coaching"
-          "nutrition"
-          "group-training";
+          "technique";
       }
 
       & > * {
@@ -139,45 +137,13 @@
         .service-location {
           @include font-h3;
         }
-      }
 
-      .online-coaching {
-        grid-area: online-coaching;
-      }
-
-      .nutrition {
-        grid-area: nutrition;
-      }
-
-      .group-training {
-        grid-area: group-training;
-        flex-direction: row;
-        gap: rem(24);
-
-        @include mobile {
-          flex-direction: column;
-          gap: rem(16);
-        }
-
-        .text-block {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          width: 50%;
-
-          @include mobile {
-            width: 100%;
-            row-gap: rem(41);
-          }
-        }
-
-        .group-img {
-          width: 50%;
+        .personal-img {
+          width: auto;
           border-radius: rem(16);
           object-fit: cover;
 
           @include tablet {
-            width: 50%;
             object-fit: cover;
             height: rem(420);
           }
@@ -189,21 +155,29 @@
         }
       }
 
-      .service-bottom {
-        .service-title {
-          @include font-body-title;
-          margin-bottom: rem(4);
-        }
+      .online-coaching {
+        grid-area: online-coaching;
+      }
 
-        .service-description {
-          @include font-body;
-          opacity: 40%;
-          margin-bottom: rem(4);
-        }
+      .technique {
+        grid-area: technique;
+      }
+    }
 
-        .service-anchor {
-          color: var(--color-primary-primary);
-        }
+    .service-bottom {
+      .service-title {
+        @include font-body-title;
+        margin-bottom: rem(4);
+      }
+
+      .service-description {
+        @include font-body;
+        opacity: 40%;
+        margin-bottom: rem(4);
+      }
+
+      .service-anchor {
+        color: var(--color-primary-primary);
       }
     }
   }
