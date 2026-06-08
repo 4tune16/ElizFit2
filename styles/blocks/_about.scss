@@ -15,6 +15,10 @@
       padding-block: rem(32);
     }
 
+    .visually-hidden {
+      @include visually-hidden;
+    }
+
     .about-top-block {
       display: flex;
       flex-direction: column;
@@ -59,6 +63,15 @@
         letter-spacing: -0.03em;
         text-align: center;
 
+        &-text {
+          font-family: var(--font-family-accent);
+          font-weight: 400;
+          font-size: 2rem;
+          line-height: 110%;
+          letter-spacing: -0.03em;
+          text-align: center;
+        }
+
         svg {
           color: var(--color-primary-primary);
           rotate: 355deg;
@@ -76,6 +89,7 @@
 
       .about-story {
         @include font-body-title;
+        font-weight: 600;
         text-align: center;
       }
 

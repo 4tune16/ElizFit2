@@ -100,6 +100,7 @@
         &-center {
           .list-intro {
             @include font-body;
+            font-weight: 600;
           }
 
           .format-info-list {

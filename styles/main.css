@@ -605,6 +605,18 @@ li:has(> a):active {
     padding-block: 2rem;
   }
 }
+.about-container .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
 .about-container .about-top-block {
   display: flex;
   flex-direction: column;
@@ -646,6 +658,14 @@ li:has(> a):active {
   letter-spacing: -0.03em;
   text-align: center;
 }
+.about-container .about-description .about-intro-text {
+  font-family: var(--font-family-accent);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
 .about-container .about-description .about-intro svg {
   color: var(--color-primary-primary);
   rotate: 355deg;
@@ -667,6 +687,7 @@ li:has(> a):active {
   font-size: 1.25rem;
   line-height: 120%;
   letter-spacing: -0.02em;
+  font-weight: 600;
   text-align: center;
 }
 .about-container .about-description .about-specialization-list {
@@ -1080,6 +1101,7 @@ li:has(> a):active {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 150%;
+  font-weight: 600;
 }
 .formats-container .formats-bottom-block .format-center .format-info-list {
   margin-top: 0.5rem;
