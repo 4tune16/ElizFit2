@@ -24,9 +24,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: var(--color-black-80);
+    background-color: black;
 
-    animation: fadeOut 0.7s ease-out 0.2s;
+    animation: fadeOut 1.5s ease-out 0.5s;
     animation-fill-mode: forwards;
     pointer-events: none;
   }
