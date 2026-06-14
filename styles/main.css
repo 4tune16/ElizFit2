@@ -405,7 +405,7 @@ li:has(> a):active {
 }
 
 .hero {
-  background: url(../images/bodylift2.webp) 0 100%/cover no-repeat;
+  background: black url(../images/bodylift2.webp) 0 100%/cover no-repeat;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -445,7 +445,7 @@ li:has(> a):active {
 @media (width <= 35.68625rem) {
   .hero-video {
     object-fit: contain;
-    background: url(../images/bodylift2.webp) 0 100%;
+    background: black url(../images/bodylift2.webp) 0 100%;
   }
 }
 .hero-gradient {
